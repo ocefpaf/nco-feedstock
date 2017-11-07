@@ -9,40 +9,49 @@ source:
   sha256: 5ba930f00a0e9775f85748d145acecfe142f917c180de538b2f8994788446cf8
 
 build:
-  number: 4
-  skip: True  # [win]
+  number: 0
+  skip: True  # [win32 or (win and py<=35)]
+  features:
+    - vc14  # [win and (py35 or py36)]
 
 requirements:
   build:
-    - gsl >=2.2,<2.3
-    - antlr >=2.7.7,<3
+    - python  # [win]
+    - cmake  # [win]
+    - antlr  # [not win]
+    - bison  # [not win]
+    - texinfo  # [not win]
+    - flex  # [not win]
+    - m4  # [not win]
     - curl >=7.44.0,<8
+    - expat 2.1.*
+    - gsl >=2.2,<2.3  # [not win]
+    - hdf5 1.10.1
+    - krb5 1.14.*  # [not win]
+    - libnetcdf 4.4.*
+    - udunits2
     - zlib 1.2.11
-    - hdf5 1.10.1
-    - libnetcdf 4.4.*
-    - udunits2
-    - expat 2.2.*
-    - krb5 1.14.*
-    - texinfo
-    - bison
-    - flex
-    - m4
+    - vc 14  # [win and (py35 or py36)]
   run:
-    - gsl >=2.2,<2.3
+    - curl >=7.44.0,<8
+    - expat 2.1.*
+    - gsl >=2.2,<2.3  # [not win]
     - hdf5 1.10.1
+    - krb5 1.14.*  # [not win]
     - libnetcdf 4.4.*
     - udunits2
-    - expat 2.2.*
-    - libgcc
-    - esmf
-    - openblas 0.2.20|0.2.20*
+    - libgcc  # [not win]
+    - openblas 0.2.19|0.2.19.*  # [not win]
+    - esmf  # [not win]
+    - vc 14  # [win and (py35 or py36)]
 
 test:
   source_files:
-    - data/in.nc
+    - data/in.cdl
   commands:
     - ncks --help
-    - ncap2 --help
+    - ncks -M "http://tds.marine.rutgers.edu/thredds/dodsC/roms/espresso/2013_da/his/ESPRESSO_Real-Time_v2_History_Best"
+    - ncap2 --help  # [not win]
     - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
