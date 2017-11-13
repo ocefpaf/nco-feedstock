@@ -3,6 +3,8 @@
 ncgen -o data/in.nc data/in.cdl
 fin=data/in.nc
 
+ncks -H --trd -v one $fin
+
 ncks -O --rgr skl=skl_t42.nc \
         --rgr grid=grd_t42.nc \
         --rgr latlon=64,128 \
