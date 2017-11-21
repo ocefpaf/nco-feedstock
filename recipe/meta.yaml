@@ -9,7 +9,7 @@ source:
   sha256: 5ba930f00a0e9775f85748d145acecfe142f917c180de538b2f8994788446cf8
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win32 or (win and py<=35)]
   features:
     - vc14  # [win and (py35 or py36)]
@@ -18,7 +18,7 @@ requirements:
   build:
     - python  # [win]
     - cmake  # [win]
-    - antlr  # [not win]
+    - antlr
     - bison  # [not win]
     - texinfo  # [not win]
     - flex  # [not win]
@@ -41,7 +41,7 @@ requirements:
     - libnetcdf 4.4.*
     - udunits2
     - libgcc  # [not win]
-    - openblas 0.2.19|0.2.19.*  # [not win]
+    - openblas 0.2.20|0.2.20*  # [not win]
     - esmf  # [not win]
     - vc 14  # [win and (py35 or py36)]
 

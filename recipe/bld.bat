@@ -16,6 +16,8 @@ cmake -G "NMake Makefiles" ^
       -D UDUNITS2_LIBRARY=%LIBRARY_LIB%\udunits2.lib ^
       -D EXPAT_LIBRARY=%LIBRARY_LIB%\expat.lib ^
       -D CURL_LIBRARY=%LIBRARY_LIB%\libcurl.lib ^
+      -D LIB_ANTLR=%LIBRARY_LIB%\antlr.lib ^
+      -D HEADER_ANTLR=%LIBRARY_INC% ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
@@ -26,4 +28,4 @@ if errorlevel 1 exit 1
 nmake install
 if errorlevel 1 exit 1
 
-move %LIBRARY_PREFIX%\*.exe %LIBRARY_BIN%
+move %LIBRARY_PREFIX%\*.exe %LIBRARY_BIN% || exit 1
