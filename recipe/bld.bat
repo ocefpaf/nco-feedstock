@@ -17,7 +17,7 @@ cmake -G "NMake Makefiles" ^
       -D EXPAT_LIBRARY=%LIBRARY_LIB%\expat.lib ^
       -D CURL_LIBRARY=%LIBRARY_LIB%\libcurl.lib ^
       -D LIB_ANTLR=%LIBRARY_LIB%\antlr.lib ^
-      -D HEADER_ANTLR=%LIBRARY_INC% ^
+      -D ANTLR_INCLUDE:PATH=%LIBRARY_INC%\antlr ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
