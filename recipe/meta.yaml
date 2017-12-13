@@ -28,7 +28,7 @@ requirements:
     - m4  # [not win]
     - curl >=7.44.0,<8
     - expat 2.2.*
-    - gsl >=2.2,<2.3  # [not win]
+    - gsl >=2.2,<2.3
     - hdf5 1.10.1
     - krb5 1.14.*  # [not win]
     - libnetcdf 4.4.*
@@ -38,7 +38,7 @@ requirements:
   run:
     - curl >=7.44.0,<8
     - expat 2.2.*
-    - gsl >=2.2,<2.3  # [not win]
+    - gsl >=2.2,<2.3
     - hdf5 1.10.1
     - krb5 1.14.*  # [not win]
     - libnetcdf 4.4.*
