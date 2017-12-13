@@ -5,8 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/nco/nco/archive/{{ version }}.tar.gz
-  sha256: 5ba930f00a0e9775f85748d145acecfe142f917c180de538b2f8994788446cf8
+  # url: https://github.com/nco/nco/archive/{{ version }}.tar.gz
+  # sha256: 5ba930f00a0e9775f85748d145acecfe142f917c180de538b2f8994788446cf8
+  # Just testing before we have a new release.
+  git_url: https://github.com/nco/nco.git
+  git_branch: master
 
 build:
   number: 4
