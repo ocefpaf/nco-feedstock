@@ -21,7 +21,7 @@ requirements:
   build:
     - python  # [win]
     - cmake  # [win]
-    - antlr >=2.7.7,<3
+    - antlr >=2.7.7,<3  # [not win]
     - bison  # [not win]
     - texinfo  # [not win]
     - flex  # [not win]
