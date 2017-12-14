@@ -10,6 +10,9 @@ source:
   # Just testing before we have a new release.
   git_url: https://github.com/nco/nco.git
   git_branch: master
+  patches:
+    # See https://github.com/conda-forge/nco-feedstock/pull/48#issuecomment-351592929
+    - cmake.patch
 
 build:
   number: 4
@@ -21,7 +24,7 @@ requirements:
   build:
     - python  # [win]
     - cmake  # [win]
-    - antlr >=2.7.7,<3  # [not win]
+    - antlr >=2.7.7,<3
     - bison  # [not win]
     - texinfo  # [not win]
     - flex  # [not win]

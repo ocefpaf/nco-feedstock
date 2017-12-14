@@ -13,6 +13,8 @@ cmake -G "NMake Makefiles" ^
       -D UDUNITS2_LIBRARY=%LIBRARY_LIB%\udunits2.lib ^
       -D EXPAT_LIBRARY=%LIBRARY_LIB%\expat.lib ^
       -D CURL_LIBRARY=%LIBRARY_LIB%\libcurl.lib ^
+      -D LIB_ANTLR=%LIBRARY_LIB%\antlr.lib ^
+      -D ANTLR_INCLUDE:PATH=%LIBRARY_INC%\antlr ^
       %SRC_DIR%
 if errorlevel 1 exit 1
 
