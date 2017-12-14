@@ -10,9 +10,6 @@ cmake -G "NMake Makefiles" ^
       -D NETCDF_LIBRARY=%LIBRARY_LIB%\netcdf.lib ^
       -D HDF5_LIBRARY=%LIBRARY_LIB%\libhdf5.lib ^
       -D HDF5_HL_LIBRARY=%LIBRARY_LIB%\libhdf5_hl.lib ^
-      -D GSL_INCLUDE=%LIBRARY_INC% ^
-      -D GSL_LIBRARY=%LIBRARY_LIB%\gsl.lib ^
-      -D GSL_CBLAS_LIBRARY=%LIBRARY_LIB%\gslcblas.lib ^
       -D UDUNITS2_INCLUDE=%LIBRARY_LIB% ^
       -D UDUNITS2_LIBRARY=%LIBRARY_LIB%\udunits2.lib ^
       -D EXPAT_LIBRARY=%LIBRARY_LIB%\expat.lib ^
