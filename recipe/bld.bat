@@ -3,6 +3,8 @@ cd %SRC_DIR%\build
 
 cmake -G "NMake Makefiles" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+      -D CMAKE_BUILD_TYPE=Release ^
+      -D NCO_MSVC_USE_MT=no ^
       -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
       -D NETCDF_INCLUDE=%LIBRARY_INC% ^
       -D NETCDF_LIBRARY=%LIBRARY_LIB%\netcdf.lib ^
