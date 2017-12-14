@@ -1,0 +1,12 @@
+--- nco.orig/src/nco/nco_sng_utl.h	2017-12-14 11:45:35.782871098 -0200
++++ nco/src/nco/nco_sng_utl.h	2017-12-14 13:06:20.619851116 -0200
+@@ -26,7 +26,8 @@
+ 
+ #ifdef _MSC_VER
+ # define NEED_STRSEP
+-# define NEED_STRCASECMP
++//# define NEED_STRCASECMP (netcdf defines strcasecmp for MSVC)
++# define strncasecmp _strnicmp // (but not strncasecmp)
+ # define NEED_STRCASESTR
+ #endif /* !_MSC_VER */
+ 

@@ -13,6 +13,7 @@ source:
   patches:
     # See https://github.com/conda-forge/nco-feedstock/pull/48#issuecomment-351592929
     - cmake.patch
+    - strcasecmp.patch
 
 build:
   number: 4
