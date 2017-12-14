@@ -1,6 +1,9 @@
 mkdir %SRC_DIR%\build
 cd %SRC_DIR%\build
 
+set "CFLAGS=%CFLAGS% -DWIN32 -DGSL_DLL"
+set "CXXFLAGS=%CXXFLAGS% -DWIN32 -DGSL_DLL"
+
 cmake -G "NMake Makefiles" ^
       -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -D CMAKE_BUILD_TYPE=Release ^
