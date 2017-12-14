@@ -8,12 +8,10 @@ cmake -G "NMake Makefiles" ^
       -D NETCDF_LIBRARY=%LIBRARY_LIB%\netcdf.lib ^
       -D HDF5_LIBRARY=%LIBRARY_LIB%\libhdf5.lib ^
       -D HDF5_HL_LIBRARY=%LIBRARY_LIB%\libhdf5_hl.lib ^
-      -D ZLIB_LIBRARY=%LIBRARY_LIB%\zlib.lib ^
       -D UDUNITS2_INCLUDE=%LIBRARY_LIB% ^
       -D UDUNITS2_LIBRARY=%LIBRARY_LIB%\udunits2.lib ^
       -D EXPAT_LIBRARY=%LIBRARY_LIB%\expat.lib ^
       -D CURL_LIBRARY=%LIBRARY_LIB%\libcurl.lib ^
-      -D LIB_ANTLR=%LIBRARY_LIB%\antlr.lib ^
       -D ANTLR_INCLUDE:PATH=%LIBRARY_INC%\antlr ^
       %SRC_DIR%
 if errorlevel 1 exit 1
