@@ -1,5 +1,5 @@
 --- nco.orig/CMakeLists.txt	2017-12-14 11:45:35.682879719 -0200
-+++ nco/CMakeLists.txt	2017-12-14 11:50:58.857293571 -0200
++++ nco/CMakeLists.txt	2017-12-14 12:13:11.007075309 -0200
 @@ -52,10 +52,12 @@
  #general C/C++ build flags
  #/////////////////////////////////////////////////////////////////////////////////////
@@ -17,7 +17,7 @@
  
  #//////////////////////////
  #detect minimum dependencies using
-@@ -247,22 +249,17 @@
+@@ -247,22 +249,27 @@
  #compile as C++/static CRT on Visual Studio and as C99 on UNIX
  #//////////////////////////
  
@@ -31,24 +31,32 @@
 -  set(CMAKE_CXX_FLAGS_RELEASE        "/MT /O2 /Ob2 /D NDEBUG")
 -  set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MT /Zi /O2 /Ob1 /D NDEBUG")
 -  
--  #//////////////////////////
--  #compile as C++ Code (/TP)
--  #//////////////////////////
- 
++
++  if (NCO_MSVC_USE_MT)
++     foreach(CompilerFlag CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
++                          CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO
++                          CMAKE_C_FLAGS_DEBUG CMAKE_C_FLAGS_RELEASE
++                          CMAKE_C_FLAGS_MINSIZEREL CMAKE_C_FLAGS_RELWITHDEBINFO)
++       string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
++     endforeach()
++  endif()
++
+   #//////////////////////////
+   #compile as C++ Code (/TP)
+   #//////////////////////////
+-
 -  set(CMAKE_C_FLAGS_DEBUG "/TP /D_DEBUG /MTd /Zi /Ob0 /Od /RTC1")
 -  set(CMAKE_C_FLAGS_MINSIZEREL     "/TP /MT /O1 /Ob1 /D NDEBUG")
 -  set(CMAKE_C_FLAGS_RELEASE        "/TP /MT /O2 /Ob2 /D NDEBUG")
 -  set(CMAKE_C_FLAGS_RELWITHDEBINFO "/TP /MT /Zi /O2 /Ob1 /D NDEBUG")
-+  if (NCO_MSVC_USE_MT)
-+     foreach(CompilerFlag CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
-+                          CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
-+       string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
-+     endforeach()
-+  endif()
++  foreach(CompilerFlag CMAKE_C_FLAGS_DEBUG CMAKE_C_FLAGS_RELEASE
++                       CMAKE_C_FLAGS_MINSIZEREL CMAKE_C_FLAGS_RELWITHDEBINFO)
++    set(${CompilerFlag} "/TP ${${CompilerFlag}}")
++  endforeach()
  
    #//////////////////////////
    #visual studio defines math symbols in math.h, avoid duplicate definition
-@@ -402,7 +399,8 @@
+@@ -402,7 +409,8 @@
  set(nco_SOURCES ${nco_SOURCES} src/nco/nco_var_scv.c src/nco/nco_var_scv.h)
  set(nco_SOURCES ${nco_SOURCES} src/nco/nco_var_utl.c src/nco/nco_var_utl.h)
  
