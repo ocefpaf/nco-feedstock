@@ -19,8 +19,7 @@ requirements:
     - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    # 20210526 csz temporarily disable OpenMP on MacOS
-    #    - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
     - libblas
@@ -34,8 +33,7 @@ requirements:
     - expat
     - gsl
     - krb5  # [not win]
-    # 20210526 csz temporarily disable OpenMP on MacOS
-    # - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - udunits2
     - zlib
