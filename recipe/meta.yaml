@@ -52,7 +52,8 @@ requirements:
     - krb5  # [not win]
     - libnetcdf
     - udunits2
-    - tempest-remap  # [not win]
+    # 2.1.2 causes tests to fail
+    - tempest-remap <2.1.2  # [not win]
 
 test:
   source_files:
