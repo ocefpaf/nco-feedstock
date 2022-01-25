@@ -1,4 +1,4 @@
-{% set version = "5.0.4" %}
+{% set version = "5.0.5" %}
 {% set build = 0 %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/nco/nco/archive/{{ version }}.tar.gz
-  sha256: 91c9d191db8c7132489d86727b195c04577f034adf168f9d341ec63b55ea4353
+  sha256: 765af0e3194c364504251c19d3362038730752fc5e741078ecdd875de45dbc55
 
 build:
   number: {{ build }}
@@ -19,8 +19,7 @@ requirements:
     - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    # 20210526 csz temporarily disable OpenMP on MacOS
-    #    - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx]
     - libgomp      # [linux]
   host:
     - libblas
@@ -34,8 +33,7 @@ requirements:
     - expat
     - gsl
     - krb5  # [not win]
-    # 20210526 csz temporarily disable OpenMP on MacOS
-    # - llvm-openmp  # [osx]
+    - llvm-openmp  # [osx]
     - libgomp      # [linux]
     - udunits2
     - zlib
@@ -54,7 +52,8 @@ requirements:
     - krb5  # [not win]
     - libnetcdf
     - udunits2
-    - tempest-remap  # [not win]
+    # 2.1.2 causes tests to fail
+    - tempest-remap <2.1.2  # [not win]
 
 test:
   source_files:
