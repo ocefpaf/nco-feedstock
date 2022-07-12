@@ -23,9 +23,9 @@ hdf5:
 krb5:
 - '1.19'
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libcblas:
-- 3.8 *netlib
+- 3.9 *netlib
 libnetcdf:
 - 4.8.1
 llvm_openmp:
