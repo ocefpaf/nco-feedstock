@@ -17,6 +17,7 @@ requirements:
   build:
     - cmake  # [win]
     - make  # [unix]
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - llvm-openmp  # [osx]

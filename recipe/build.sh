@@ -1,4 +1,6 @@
 #!/bin/bash
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./autobld
 
 if [[ $(uname) == Darwin ]]; then
   ARGS="--disable-openmp --enable-regex --disable-shared --disable-doc"
@@ -13,5 +15,7 @@ export NETCDF_ROOT=$PREFIX
 ./configure --prefix=$PREFIX $ARGS
 
 make -j$CPU_COUNT
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
 make check
+fi
 make install
