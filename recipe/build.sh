@@ -28,13 +28,20 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     # Sed expression to map a string onto a valid variable name.
     as_tr_sh="eval sed 'y%*+%pp%;s%[^_$as_cr_alnum]%_%g'"
 
+    # Now follow cache variables for dep checks
+    # GSL header check
     GSL_ROOT=$(gsl-config --prefix)
     GSL_INC=${GSL_ROOT}/include
-
     as_ac_File=`printf "%s\n" "ac_cv_file_${GSL_INC}/gsl/gsl_sf_gamma.h" | $as_tr_sh`
     eval "export $as_ac_File=yes"
 
+    # General UDUNITS2 check
     export UDUNITS2_PATH=${PREFIX}
+
+    # UDUNITS2 database check
+    nco_udunits2_xml=${UDUNITS2_PATH}/share/udunits/udunits2.xml
+    as_ac_File=`printf "%s\n" "ac_cv_file_$nco_udunits2_xml" | $as_tr_sh`
+    eval "export $as_ac_File=yes"
 fi
 
 ./configure --prefix=$PREFIX $ARGS
