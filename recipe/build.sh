@@ -33,6 +33,8 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
 
     as_ac_File=`printf "%s\n" "ac_cv_file_${GSL_INC}/gsl/gsl_sf_gamma.h" | $as_tr_sh`
     eval "export $as_ac_File=yes"
+
+    export UDUNITS2_PATH=${PREFIX}
 fi
 
 ./configure --prefix=$PREFIX $ARGS
