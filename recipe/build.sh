@@ -45,6 +45,9 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     # UDUNITS2 header check
     as_ac_File=`printf "%s\n" "ac_cv_file_${UDUNITS2_PATH}/include/udunits2.h" | $as_tr_sh`
     eval "export $as_ac_File=yes"
+
+    # Hardcode flex output root
+    ac_cv_prog_lex_root=lex.yy
 fi
 
 ./configure --prefix=$PREFIX $ARGS
