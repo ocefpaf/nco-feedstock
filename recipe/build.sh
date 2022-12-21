@@ -42,6 +42,9 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     nco_udunits2_xml=${UDUNITS2_PATH}/share/udunits/udunits2.xml
     as_ac_File=`printf "%s\n" "ac_cv_file_$nco_udunits2_xml" | $as_tr_sh`
     eval "export $as_ac_File=yes"
+    # UDUNITS2 header check
+    as_ac_File=`printf "%s\n" "ac_cv_file_${UDUNITS2_PATH}/include/udunits2.h" | $as_tr_sh`
+    eval "export $as_ac_File=yes"
 fi
 
 ./configure --prefix=$PREFIX $ARGS
