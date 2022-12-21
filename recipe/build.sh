@@ -47,7 +47,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     eval "export $as_ac_File=yes"
 
     # Hardcode flex output root
-    ac_cv_prog_lex_root=lex.yy
+    export ac_cv_prog_lex_root=lex.yy
 fi
 
 ./configure --prefix=$PREFIX $ARGS
