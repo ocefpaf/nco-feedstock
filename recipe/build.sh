@@ -15,7 +15,7 @@ export HAVE_ANTLR=yes
 export HAVE_NETCDF4_H=yes
 export NETCDF_ROOT=$PREFIX
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     # The following is borrowed from `configure`.
     # Note that we don't `export` and thus don't pollute
     # `configure` itself.
