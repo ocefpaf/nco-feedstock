@@ -48,6 +48,8 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
 
     # Hardcode flex output root
     export ac_cv_prog_lex_root=lex.yy
+
+    export LEX=${BUILD_PREFIX}/bin/flex
 fi
 
 ./configure --prefix=$PREFIX $ARGS
