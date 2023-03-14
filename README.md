@@ -1,11 +1,11 @@
-About nco
-=========
+About nco-feedstock
+===================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nco-feedstock/blob/main/LICENSE.txt)
 
 Home: http://nco.sourceforge.net/
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/nco-feedstock/blob/main/LICENSE.txt)
 
 Summary: Suite of programs for manipulating NetCDF/HDF4 files
 
