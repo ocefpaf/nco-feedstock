@@ -35,7 +35,6 @@ requirements:
     - texinfo  # [not win]
     - flex  # [not win]
     - m4  # [not win]
-    - curl
     - expat
     - gsl
     - krb5  # [not win]
@@ -50,7 +49,6 @@ requirements:
     - libnetcdf
     - libnetcdf * nompi_*
   run:
-    - curl
     - esmf  # [not win]
     # tempest-remap 2.1.2 and 2.1.3 dropped a flag used by NCO
     - tempest-remap !=2.1.2,!=2.1.3  # [not win]
