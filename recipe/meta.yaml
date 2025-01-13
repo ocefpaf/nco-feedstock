@@ -56,7 +56,7 @@ requirements:
 
 test:
   requires:
-    - wget
+    - wget  # [not win]
   source_files:
     - data/in.cdl
   commands:
