@@ -52,7 +52,7 @@ requirements:
   run:
     - esmf  # [not win]
     # we don't want older versions of tempest-remap picked with bad dependency constraints
-    - tempest-remap >=2.2.0
+    - tempest-remap >=2.2.0  # [not win]
 
 test:
   requires:
